@@ -8,10 +8,10 @@ import { withStyles } from "@material-ui/core/styles";
 
 import Grid from "@material-ui/core/Grid";
 
-import { getFeature } from "../../actions/featureActions";
+import { getFeature } from "../actions/privateActions";
 import ProductCard from "./ProductCard";
 import ProductList from "./ProductList";
-import Layouts from "../../layouts/index";
+import Layout from "../layout/Layout";
 
 const styles = theme => ({
   root: {
@@ -29,7 +29,7 @@ class Products extends Component {
     const { classes } = this.props;
 
     return (
-      <Layouts>
+      <Layout>
         <div className={classes.root}>
           <Grid
             container
@@ -71,7 +71,7 @@ class Products extends Component {
             </Grid>
           </Grid>
         </div>
-      </Layouts>
+      </Layout>
     );
   }
 }
@@ -81,7 +81,6 @@ Products.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  message: state.feature.message,
   errors: state.errors
 });
 

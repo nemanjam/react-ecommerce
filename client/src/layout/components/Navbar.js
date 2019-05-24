@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-import { logInUser, logOutUser } from "../../../actions/authActions";
+import { logInUser, logOutUser } from "../../actions/authActions";
 
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -14,6 +14,7 @@ import Button from "@material-ui/core/Button";
 
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+import ExitToApp from "@material-ui/icons/ExitToApp";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
@@ -59,7 +60,9 @@ class Navbar extends Component {
   };
 
   onLogOut = () => {
-    this.props.logOutUser();
+    this.props.logOutUser(() => {
+      this.props.history.push("/");
+    });
   };
 
   componentDidMount() {
@@ -69,8 +72,8 @@ class Navbar extends Component {
   }
 
   render() {
-    const { classes } = this.props;
-    const { auth, anchorEl } = this.state;
+    const { classes, auth } = this.props;
+    const { anchorEl } = this.state;
 
     return (
       <div className={classes.root}>
@@ -90,30 +93,13 @@ class Navbar extends Component {
             <Button color="inherit" component={Link} to="/products">
               Products
             </Button>
-            <Button color="inherit" component={Link} to="/feature">
-              Feature
-            </Button>
+            {auth.isAuthenticated && (
+              <Button color="inherit" component={Link} to="/feature">
+                Feature
+              </Button>
+            )}
             <section className={classes.toolbarButtons}>
-              {/* {this.props.auth.isAuthenticated ? (
-                <Button
-                  variant="outlined"
-                  className={classes.noWrap}
-                  color="inherit"
-                  onClick={this.onLogOut}
-                >
-                  Log out {this.props.auth.user.displayName}
-                </Button>
-              ) : (
-                <Button
-                  className={classes.noWrap}
-                  color="inherit"
-                  component={Link}
-                  to="/login"
-                >
-                  Login
-                </Button>
-              )} */}
-              {this.props.auth.isAuthenticated ? (
+              {auth.isAuthenticated ? (
                 <div>
                   <IconButton
                     aria-owns={Boolean(anchorEl) ? "menu-appbar" : undefined}
@@ -137,8 +123,18 @@ class Navbar extends Component {
                     open={Boolean(anchorEl)}
                     onClose={this.handleClose}
                   >
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.onLogOut}>Log out</MenuItem>
+                    <MenuItem component={Link} to="/profile">
+                      <IconButton color="inherit">
+                        <AccountCircle />
+                      </IconButton>
+                      <p>Profile</p>
+                    </MenuItem>
+                    <MenuItem onClick={this.onLogOut}>
+                      <IconButton color="inherit">
+                        <ExitToApp />
+                      </IconButton>
+                      <p>Log out</p>
+                    </MenuItem>
                   </Menu>
                 </div>
               ) : (
@@ -169,6 +165,7 @@ const mapStateToProps = state => ({
 });
 
 export default compose(
+  withRouter,
   connect(
     mapStateToProps,
     { logInUser, logOutUser }

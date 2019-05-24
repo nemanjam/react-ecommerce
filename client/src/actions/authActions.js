@@ -14,7 +14,7 @@ export const registerUserWithEmail = (formData, cb, cbErr) => async (
   getState
 ) => {
   try {
-    const response = await axios.post("/auth/login", formData);
+    const response = await axios.post("/auth/register", formData);
 
     dispatch({
       type: REGISTER_USER_WITH_EMAIL
@@ -95,7 +95,7 @@ export const logInUser = () => async (dispatch, getState) => {
 };
 
 // Log user out
-export const logOutUser = () => async dispatch => {
+export const logOutUser = cb => async dispatch => {
   try {
     localStorage.removeItem("token");
     deleteAllCookies();
@@ -105,11 +105,13 @@ export const logOutUser = () => async dispatch => {
       type: LOGOUT_USER,
       payload: false
     });
+    cb();
   } catch (err) {
     dispatch({
       type: SET_ERROR,
       payload: err.response.data
     });
+    cb();
   }
 };
 

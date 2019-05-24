@@ -9,10 +9,10 @@ import Grid from "@material-ui/core/Grid";
 import FavoriteBorderOutlined from "@material-ui/icons/FavoriteBorderOutlined";
 import IconButton from "@material-ui/core/IconButton";
 
-import { getFeature } from "../../actions/featureActions";
+import { getFeature } from "../actions/privateActions";
 import { Paper, Button } from "@material-ui/core";
 
-import Layouts from "../../layouts/index";
+import Layout from "../layout/Layout";
 
 const styles = theme => ({
   root: {
@@ -43,7 +43,7 @@ class Product extends Component {
     const { classes } = this.props;
 
     return (
-      <Layouts>
+      <Layout>
         <div className={classes.root}>
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6}>
@@ -123,7 +123,7 @@ class Product extends Component {
             </Grid>
           </Grid>
         </div>
-      </Layouts>
+      </Layout>
     );
   }
 }
@@ -133,7 +133,6 @@ Product.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  message: state.feature.message,
   errors: state.errors
 });
 

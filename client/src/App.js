@@ -6,10 +6,11 @@ import store from "./store";
 import "./App.css";
 import Login from "./views/Login";
 import Register from "./views/Register";
-import Products from "./views/Private/Products";
-import Product from "./views/Private/Product";
 import Home from "./views/Home";
+import Profile from "./views/Private/Profile";
 import Feature from "./views/Private/Feature";
+import Products from "./views/Products";
+import Product from "./views/Product";
 
 class App extends Component {
   render() {
@@ -20,9 +21,10 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/feature" component={Feature} />
             <Route path="/products" component={Products} />
             <Route path="/product" component={Product} />
-            <Route path="/feature" component={Feature} />
           </Switch>
         </Router>
       </Provider>
