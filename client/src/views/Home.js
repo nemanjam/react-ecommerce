@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
 import Layout from "../layout/Layout";
+import Slideshow from "../components/Slideshow";
+import Carousel from "../components/Carousel";
+import BottomCarousel from "../components/BottomCarousel";
 
 const styles = theme => ({});
 
@@ -14,6 +17,9 @@ class Home extends Component {
 
     return (
       <Layout>
+        {/* <Slideshow /> */}
+        <Carousel />
+        <BottomCarousel />
         {!isAuthenticated ? (
           <h1>Welcome! Log in or register!</h1>
         ) : (

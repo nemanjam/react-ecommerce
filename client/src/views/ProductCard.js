@@ -1,24 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 const styles = {
   card: {
     maxWidth: 345,
-    margin: 'auto'
+    margin: "auto"
   },
   media: {
-    height: 140,
-  },
+    height: 140
+  }
 };
 
 function ProductCard(props) {
@@ -28,7 +28,7 @@ function ProductCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/reptile.jpg"
+          image="static/images/reptile.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -36,13 +36,13 @@ function ProductCard(props) {
             Lizard
           </Typography>
           <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" component={Link} to="/product" >
+        <Button size="small" color="primary" component={Link} to="/product">
           Product
         </Button>
         <Button size="small" color="primary">
@@ -54,7 +54,7 @@ function ProductCard(props) {
 }
 
 ProductCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ProductCard);

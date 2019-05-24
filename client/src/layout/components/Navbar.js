@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
@@ -15,6 +15,8 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import ExitToApp from "@material-ui/icons/ExitToApp";
+import Favorite from "@material-ui/icons/Favorite";
+import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 
@@ -99,8 +101,14 @@ class Navbar extends Component {
               </Button>
             )}
             <section className={classes.toolbarButtons}>
+              <IconButton color="inherit">
+                <Favorite />
+              </IconButton>
+              <IconButton color="inherit">
+                <ShoppingCart />
+              </IconButton>
               {auth.isAuthenticated ? (
-                <div>
+                <Fragment>
                   <IconButton
                     aria-owns={Boolean(anchorEl) ? "menu-appbar" : undefined}
                     aria-haspopup="true"
@@ -136,7 +144,7 @@ class Navbar extends Component {
                       <p>Log out</p>
                     </MenuItem>
                   </Menu>
-                </div>
+                </Fragment>
               ) : (
                 <Button
                   className={classes.noWrap}

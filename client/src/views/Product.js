@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
+import ReactImageMagnify from "react-image-magnify";
 
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -13,11 +14,10 @@ import { getFeature } from "../actions/privateActions";
 import { Paper, Button } from "@material-ui/core";
 
 import Layout from "../layout/Layout";
+import zIndex from "@material-ui/core/styles/zIndex";
 
 const styles = theme => ({
-  root: {
-    marginTop: "15px"
-  },
+  root: {},
   image: {
     maxWidth: "100%"
   },
@@ -47,7 +47,28 @@ class Product extends Component {
         <div className={classes.root}>
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6}>
-              <img className={classes.image} src="static/images/product.png" />
+              {/* <img className={classes.image} src="static/images/product.png" /> */}
+              <ReactImageMagnify
+                {...{
+                  smallImage: {
+                    alt: "Wristwatch by Ted Baker London",
+                    isFluidWidth: true,
+                    src: "static/images/product.png"
+                  },
+                  largeImage: {
+                    src: "static/images/product.png",
+                    width: 1200,
+                    height: 1800
+                  },
+                  enlargedImageContainerStyle: {
+                    zIndex: "1500"
+                  },
+                  enlargedImageContainerDimensions: {
+                    width: "100%",
+                    height: "100%"
+                  }
+                }}
+              />
             </Grid>
             <Grid container spacing={2} item xs={12} sm={6} direction="column">
               <Grid item>

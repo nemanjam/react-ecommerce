@@ -14,7 +14,7 @@ const styles = theme => ({
       marginLeft: "auto",
       marginRight: "auto"
     },
-    paddingTop: "64px"
+    paddingTop: "79px"
   },
   paper: {
     ...theme.mixins.gutters(),
