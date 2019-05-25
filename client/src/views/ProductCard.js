@@ -34,6 +34,7 @@ function ProductCard(props) {
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             Lizard
+            {Math.random()}
           </Typography>
           <Typography component="p">
             Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -57,4 +58,4 @@ ProductCard.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProductCard);
+export default React.memo(withStyles(styles)(ProductCard));

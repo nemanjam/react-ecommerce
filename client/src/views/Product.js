@@ -15,6 +15,8 @@ import { Paper, Button } from "@material-ui/core";
 
 import Layout from "../layout/Layout";
 import zIndex from "@material-ui/core/styles/zIndex";
+import MyImageGallery from "../components/MyImageGallery";
+import MyReactImageMagnify from "../components/MyReactImageMagnify";
 
 const styles = theme => ({
   root: {},
@@ -46,31 +48,20 @@ class Product extends Component {
       <Layout>
         <div className={classes.root}>
           <Grid container spacing={4}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} md={8}>
+              {/* <MyReactImageMagnify /> */}
+              <MyImageGallery />
               {/* <img className={classes.image} src="static/images/product.png" /> */}
-              <ReactImageMagnify
-                {...{
-                  smallImage: {
-                    alt: "Wristwatch by Ted Baker London",
-                    isFluidWidth: true,
-                    src: "static/images/product.png"
-                  },
-                  largeImage: {
-                    src: "static/images/product.png",
-                    width: 1200,
-                    height: 1800
-                  },
-                  enlargedImageContainerStyle: {
-                    zIndex: "1500"
-                  },
-                  enlargedImageContainerDimensions: {
-                    width: "100%",
-                    height: "100%"
-                  }
-                }}
-              />
             </Grid>
-            <Grid container spacing={2} item xs={12} sm={6} direction="column">
+            <Grid
+              container
+              spacing={2}
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              direction="column"
+            >
               <Grid item>
                 <Paper className={classes.paper}>
                   <Typography variant="h5" gutterBottom>
