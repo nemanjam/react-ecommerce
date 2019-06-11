@@ -6,10 +6,10 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = {
   root: {},
   eachSlide: {
-    height: 400,
+    height: 500,
     backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundColor: "rgba(0,0,0,.1)"
+    backgroundPosition: "center"
+    //backgroundColor: "rgba(0,0,0,.1)"
   }
 };
 

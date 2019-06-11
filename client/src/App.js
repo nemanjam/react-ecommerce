@@ -6,7 +6,7 @@ import store from "./store";
 import "./App.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Home from "./pages/Home";
+import Album from "./pages/Album";
 import Profile from "./pages/Private/Profile";
 import Feature from "./pages/Private/Feature";
 import Products from "./pages/Products";
@@ -18,7 +18,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Album} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/profile" component={Profile} />

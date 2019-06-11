@@ -4,20 +4,22 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 
 import { withStyles } from "@material-ui/core/styles";
-import { Typography, Button } from "@material-ui/core";
+import { Typography, Button, Paper } from "@material-ui/core";
 
 import Layout from "../layout/Layout";
-import Carousel from "../components/MyCarousel";
+import MyCarousel from "../components/MyCarousel";
 import BottomCarousel from "../components/BottomCarousel";
 
 const styles = theme => ({
-  carousel: { marginBottom: "1rem" },
+  carousel: {},
   featured: {
     marginBottom: "1rem",
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    padding: "1rem"
   },
-  bottomCarousel: { marginBottom: "1rem" }
+  bottomCarousel: {},
+  paper: { padding: "1rem", marginBottom: "1rem" }
 });
 
 class Home extends Component {
@@ -26,7 +28,7 @@ class Home extends Component {
     const { classes } = this.props;
     return (
       <Layout>
-        <Carousel className={classes.carousel} />
+        <MyCarousel className={classes.carousel} />
         <div className={classes.featured}>
           <Typography color="primary" variant="h5">
             Featured products

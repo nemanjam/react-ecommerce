@@ -57,7 +57,7 @@ class Products extends Component {
             <Grid
               container
               item
-              spacing={2}
+              spacing={5}
               xs={12}
               sm={8}
               md={9}
