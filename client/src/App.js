@@ -4,13 +4,13 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import "./App.css";
-import Login from "./views/Login";
-import Register from "./views/Register";
-import Home from "./views/Home";
-import Profile from "./views/Private/Profile";
-import Feature from "./views/Private/Feature";
-import Products from "./views/Products";
-import Product from "./views/Product";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Home from "./pages/Home";
+import Profile from "./pages/Private/Profile";
+import Feature from "./pages/Private/Feature";
+import Products from "./pages/Products";
+import Product from "./pages/Product";
 
 class App extends Component {
   render() {

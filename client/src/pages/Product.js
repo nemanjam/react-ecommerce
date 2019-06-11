@@ -16,7 +16,6 @@ import { Paper, Button } from "@material-ui/core";
 import Layout from "../layout/Layout";
 import zIndex from "@material-ui/core/styles/zIndex";
 import MyImageGallery from "../components/MyImageGallery";
-import MyReactImageMagnify from "../components/MyReactImageMagnify";
 
 const styles = theme => ({
   root: {},
@@ -49,9 +48,7 @@ class Product extends Component {
         <div className={classes.root}>
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6} md={8}>
-              {/* <MyReactImageMagnify /> */}
               <MyImageGallery />
-              {/* <img className={classes.image} src="static/images/product.png" /> */}
             </Grid>
             <Grid
               container

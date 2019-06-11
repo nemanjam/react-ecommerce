@@ -24,7 +24,7 @@ const styles = {
 function ProductCard(props) {
   const { classes } = props;
   return (
-    <Card className={classes.card} elevation={6}>
+    <Card className={classes.card} elevation={6} raised>
       <CardActionArea>
         <CardMedia
           className={classes.media}

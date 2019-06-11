@@ -9,8 +9,8 @@ import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
 import { getFeature } from "../actions/privateActions";
-import ProductCard from "./ProductCard";
-import ProductList from "./ProductList";
+import ProductCard from "../components/ProductCard";
+import ProductList from "../components/ProductList";
 import Layout from "../layout/Layout";
 
 const styles = theme => ({

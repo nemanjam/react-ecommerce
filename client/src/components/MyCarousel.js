@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Carousel from "nuka-carousel";
+import clsx from "clsx";
 import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
+  root: {},
   eachSlide: {
     height: 400,
     backgroundSize: "cover",
@@ -13,10 +15,11 @@ const styles = {
 
 class MyCarousel extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, className, ...rest } = this.props;
+    const rootClassName = clsx(classes.root, className);
 
     return (
-      <Carousel wrapAround={true}>
+      <Carousel wrapAround={true} className={rootClassName} {...rest}>
         <div
           className={classes.eachSlide}
           style={{ backgroundImage: `url(static/images/lure1.png)` }}

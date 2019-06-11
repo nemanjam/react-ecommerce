@@ -1,39 +1,40 @@
-import React, { Component } from "react";
-import Carousel from "nuka-carousel";
+import React, { Component, Fragment } from "react";
+import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 
-import ProductCard from "../views/ProductCard";
+import ProductCard from "./ProductCard";
 
 const styles = {
-  eachSlide: {
-    //height: 300
-  }
-};
-
-const properties = {
-  autoplay: true,
-  cellSpacing: 30,
-  slidesToShow: 4,
-  wrapAround: true,
-  autoplayInterval: 3000,
-  cellAlign: "center",
-  speed: 2000
+  root: {}
 };
 
 class BottomCarousel extends Component {
   render() {
-    const { classes } = this.props;
+    const { classes, className, ...rest } = this.props;
+    const rootClassName = clsx(classes.root, className);
 
     return (
-      <Carousel {...properties}>
-        <ProductCard className={classes.eachSlide} />
-        <ProductCard className={classes.eachSlide} />
-        <ProductCard className={classes.eachSlide} />
-        <ProductCard className={classes.eachSlide} />
-        <ProductCard className={classes.eachSlide} />
-        <ProductCard className={classes.eachSlide} />
-        <ProductCard className={classes.eachSlide} />
-      </Carousel>
+      <Grid
+        container
+        className={rootClassName}
+        justify="space-between"
+        spacing={3}
+        {...rest}
+      >
+        <Grid item xs={6} sm={3}>
+          <ProductCard />
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <ProductCard />
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <ProductCard />
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <ProductCard />
+        </Grid>
+      </Grid>
     );
   }
 }
