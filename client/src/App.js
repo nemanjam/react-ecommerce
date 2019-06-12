@@ -11,6 +11,8 @@ import Profile from "./pages/Private/Profile";
 import Feature from "./pages/Private/Feature";
 import Products from "./pages/Products";
 import Product from "./pages/Product";
+import LikedProducts from "./pages/LikedProducts";
+import Cart from "./pages/Cart";
 
 class App extends Component {
   render() {
@@ -24,6 +26,8 @@ class App extends Component {
             <Route path="/profile" component={Profile} />
             <Route path="/feature" component={Feature} />
             <Route path="/products" component={Products} />
+            <Route path="/liked-products" component={LikedProducts} />
+            <Route path="/cart" component={Cart} />
             <Route path="/product" component={Product} />
           </Switch>
         </Router>

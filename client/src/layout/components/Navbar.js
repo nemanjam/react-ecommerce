@@ -19,6 +19,7 @@ import Favorite from "@material-ui/icons/Favorite";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import Badge from "@material-ui/core/Badge";
 
 const styles = theme => ({
   root: {
@@ -101,11 +102,15 @@ class Navbar extends Component {
               </Button>
             )}
             <section className={classes.toolbarButtons}>
-              <IconButton color="inherit">
-                <Favorite />
+              <IconButton color="inherit" component={Link} to="/liked-products">
+                <Badge badgeContent={4} color="secondary">
+                  <Favorite />
+                </Badge>
               </IconButton>
-              <IconButton color="inherit">
-                <ShoppingCart />
+              <IconButton color="inherit" component={Link} to="/cart">
+                <Badge badgeContent={4} color="secondary">
+                  <ShoppingCart />
+                </Badge>
               </IconButton>
               {auth.isAuthenticated ? (
                 <Fragment>

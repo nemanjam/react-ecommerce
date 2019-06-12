@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { compose } from "redux";
-import { connect } from "react-redux";
+
 import _ from "lodash";
 
 import PropTypes from "prop-types";
@@ -9,7 +8,6 @@ import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 
-import { getFeature } from "../actions/privateActions";
 import ProductCard from "../components/ProductCard";
 import ProductList from "../components/ProductList";
 import Layout from "../layout/Layout";
@@ -21,12 +19,7 @@ const styles = theme => ({
   cardGrid: {}
 });
 
-class Products extends Component {
-  componentDidMount() {
-    // this.props.getFeature();
-    // console.log(this.props);
-  }
-
+class Cart extends Component {
   render() {
     const { classes } = this.props;
 
@@ -43,10 +36,25 @@ class Products extends Component {
               <Grid
                 container
                 item
+                spacing={4}
+                xs={12}
+                sm={8}
+                md={9}
+                alignItems="flex-end"
+              >
+                {_.range(5).map((item, index) => (
+                  <Grid item key={index} xs={12} sm={6} md={4}>
+                    <ProductCard />
+                  </Grid>
+                ))}
+              </Grid>
+
+              <Grid
+                container
+                item
                 xs={12}
                 sm={4}
                 md={3}
-                lg={2}
                 spacing={2}
                 alignItems="stretch"
                 direction="column"
@@ -54,25 +62,6 @@ class Products extends Component {
                 <Grid item>
                   <ProductList />
                 </Grid>
-                <Grid item>
-                  <ProductList />
-                </Grid>
-              </Grid>
-              <Grid
-                container
-                item
-                spacing={4}
-                xs={12}
-                sm={8}
-                md={9}
-                lg={10}
-                alignItems="flex-end"
-              >
-                {_.range(10).map((item, index) => (
-                  <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-                    <ProductCard />
-                  </Grid>
-                ))}
               </Grid>
             </Grid>
           </Container>
@@ -82,18 +71,8 @@ class Products extends Component {
   }
 }
 
-Products.propTypes = {
+Cart.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
-  errors: state.errors
-});
-
-export default compose(
-  connect(
-    mapStateToProps,
-    { getFeature }
-  ),
-  withStyles(styles)
-)(Products);
+export default withStyles(styles)(Cart);

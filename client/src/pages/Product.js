@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import ReactImageMagnify from "react-image-magnify";
 
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
